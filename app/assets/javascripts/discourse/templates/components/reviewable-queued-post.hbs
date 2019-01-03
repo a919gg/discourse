@@ -1,0 +1,25 @@
+<div class='poster'>
+  {{#user-link user=reviewable.created_by}}
+    {{avatar reviewable.created_by imageSize="large"}}
+  {{/user-link}}
+</div>
+
+<div class='cooked'>
+  <div class='names'>
+    <span class="username">
+      {{#user-link user=reviewable.created_by}}
+        {{reviewable.created_by.username}}
+      {{/user-link}}
+      {{#if reviewable.created_by.silenced}}
+        {{d-icon "ban" title="user.silenced_tooltip"}}
+      {{/if}}
+    </span>
+  </div>
+  <div class='post-info'>
+    <span class='post-date'>{{age-with-tooltip reviewable.created_at}}</span>
+  </div>
+  <div class='body'>
+    {{cook-text reviewable.raw}}
+  </div>
+</div>
+
